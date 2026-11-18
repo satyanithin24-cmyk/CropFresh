@@ -1,0 +1,13 @@
+services:
+	notebook:
+		image: quay.io/jupyter/scipy-notebook:latest
+		ports:
+			- "8888:8888"
+		volumes:
+			- .:/home/jovyan/work
+		working_dir: /home/jovyan/work
+		command:
+			- start-notebook.py
+			- --ServerApp.ip=0.0.0.0
+			- --ServerApp.allow_origin='*'
+			- --ServerApp.token=''
